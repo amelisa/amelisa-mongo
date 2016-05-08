@@ -20,7 +20,8 @@ const metaOperators = {
   $count: true,
   $aggregate: true,
   $distinct: true,
-  $field: true
+  $field: true,
+  $mapReduce: true
 }
 
 const notDocsOperators = {
@@ -174,7 +175,9 @@ class MongoQueries {
   }
 
   isQuery (expression) {
-    return typeof expression === 'object'
+    return expression &&
+      typeof expression === 'object' &&
+      !Array.isArray(expression)
   }
 }
 
