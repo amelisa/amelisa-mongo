@@ -129,6 +129,8 @@ class MongoQueries {
   }
 
   isDocsQuery (expression) {
+    if (!expression || typeof expression !== 'object') return false
+
     let query = this.normalizeExpression(expression)
 
     for (let key in query) {
