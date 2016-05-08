@@ -1,4 +1,3 @@
-// import MongoStorage from '../src/MongoStorage'
 import { shouldBehaveLikeMongoQueriesStorage } from './mongoqueriesstorage'
 let MongoStorage
 try {

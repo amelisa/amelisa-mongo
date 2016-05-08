@@ -1,4 +1,3 @@
-// import RethinkStorage from '../src/RethinkStorage'
 import { shouldBehaveLikeMongoQueriesStorage } from './mongoqueriesstorage'
 let RethinkStorage
 try {
