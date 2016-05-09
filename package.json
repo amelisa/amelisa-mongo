@@ -1,6 +1,6 @@
 {
   "name": "amelisa-mongo",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Mongo queries storage for Amelisa",
   "main": "lib",
   "scripts": {
