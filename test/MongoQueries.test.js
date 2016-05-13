@@ -27,6 +27,8 @@ describe('MongoQueries', () => {
   })
 
   it('should isJoinQuery', () => {
+    assert(!dbQueries.isJoinQuery())
+    assert(!dbQueries.isJoinQuery('string'))
     assert(!dbQueries.isJoinQuery({}))
     assert(!dbQueries.isJoinQuery({$count: true}))
     assert(!dbQueries.isJoinQuery({name: 'value'}))

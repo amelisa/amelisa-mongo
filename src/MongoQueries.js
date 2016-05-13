@@ -130,7 +130,7 @@ class MongoQueries {
   }
 
   isDocsQuery (expression) {
-    if (!expression || typeof expression !== 'object') return false
+    if (!this.isQuery(expression)) return false
 
     let query = this.normalizeExpression(expression)
 
@@ -150,6 +150,8 @@ class MongoQueries {
   }
 
   isJoinQuery (expression) {
+    if (!this.isQuery(expression)) return false
+
     let query = this.normalizeExpression(expression)
 
     for (let key in query.$query) {
