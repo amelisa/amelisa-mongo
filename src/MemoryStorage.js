@@ -46,6 +46,7 @@ class MemoryStorage extends MongoQueries {
       allDocs.push({...collection[docId]})
     }
 
+    expression = this.mongolizeExpression(expression)
     let docs = this.getQueryResultFromArray(allDocs, expression)
     if (this.isDocsQuery(expression)) docs = docs.map(this.demongolizeDoc)
     return docs

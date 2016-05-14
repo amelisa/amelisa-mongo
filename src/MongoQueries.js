@@ -98,8 +98,6 @@ class MongoQueries {
       }
     }
 
-    this.mongolizeExpression(normalized)
-
     // Do not return deleted docs
     normalized.$query._del = {
       $ne: true
@@ -108,17 +106,20 @@ class MongoQueries {
     return normalized
   }
 
-  mongolizeExpression (object) {
-    if (typeof object !== 'object') return
+  mongolizeExpression (expression) {
+    if (typeof expression !== 'object') return expression
 
-    if (object.id) {
-      object._id = object.id
-      delete object.id
+    let mongolized = Array.isArray(expression) ? [] : {}
+
+    for (let key in expression) {
+      if (key === 'id') {
+        mongolized._id = expression.id
+        continue
+      }
+      mongolized[key] = this.mongolizeExpression(expression[key])
     }
 
-    for (let key in object) {
-      this.mongolizeExpression(object[key])
-    }
+    return mongolized
   }
 
   demongolizeDoc (doc) {
