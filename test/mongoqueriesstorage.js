@@ -102,6 +102,9 @@ let shouldBehaveLikeMongoQueriesStorage = function () {
       docs = await this.storage.getDocsByQuery(collectionName, {value: 1})
       assert.equal(docs.length, 1)
 
+      docs = await this.storage.getDocsByQuery(collectionName, {id: '1'})
+      assert.equal(docs.length, 1)
+
       docs = await this.storage.getDocsByQuery(collectionName, {value: {$not: {$eq: 1}}})
       assert.equal(docs.length, 2)
 

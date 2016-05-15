@@ -30,6 +30,7 @@ class MongoStorage extends MongoQueries {
   }
 
   async getDocsByQuery (collectionName, expression) {
+    expression = this.mongolizeExpression(expression)
     expression = this.normalizeExpression(expression)
     let collection = this.db.collection(collectionName)
 
