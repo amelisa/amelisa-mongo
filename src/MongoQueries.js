@@ -1,4 +1,5 @@
 import Mingo from 'mingo'
+import { deepClone } from './util'
 
 Mingo.setup({
   key: '_id'
@@ -42,6 +43,9 @@ class MongoQueries {
   }
 
   getQueryResultFromArray (allDocs, expression) {
+    // Mingo mutates $regex expressions
+    expression = deepClone(expression)
+
     expression = this.normalizeExpression(expression)
 
     if (expression.$aggregate) {
