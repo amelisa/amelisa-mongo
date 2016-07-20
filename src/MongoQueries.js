@@ -22,15 +22,17 @@ const metaOperators = {
   $aggregate: true,
   $distinct: true,
   $field: true,
-  $mapReduce: true,
-  $options: true
+  $map: true,
+  $reduce: true,
+  $options: true,
+  $scope: true
 }
 
 const notDocsOperators = {
   $count: true,
   $aggregate: true,
   $distinct: true,
-  $mapReduce: true
+  $map: true
 }
 
 function arrayUnique (array) {
@@ -80,7 +82,7 @@ class MongoQueries {
       return arrayUnique(values)
     }
 
-    // TODO: implement $mapReduce
+    // TODO: implement map reduce
 
     return cursor.all()
   }

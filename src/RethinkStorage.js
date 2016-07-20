@@ -193,7 +193,7 @@ class RethinkStorage extends MongoQueries {
       throw new Error('Aggregate queries are not implemented')
     }
 
-    if (expression.$mapReduce) {
+    if (expression.$map) {
       throw new Error('Map reduce queries are not implemented')
     }
 

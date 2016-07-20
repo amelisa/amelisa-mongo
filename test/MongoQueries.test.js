@@ -15,7 +15,7 @@ describe('MongoQueries', () => {
     assert(!dbQueries.isDocsQuery({$count: true}))
     assert(!dbQueries.isDocsQuery({$aggregate: true}))
     assert(!dbQueries.isDocsQuery({$distinct: true}))
-    assert(!dbQueries.isDocsQuery({$mapReduce: true}))
+    assert(!dbQueries.isDocsQuery({$map: true}))
     assert(dbQueries.isDocsQuery({}))
     assert(dbQueries.isDocsQuery({name: true}))
   })

@@ -50,7 +50,7 @@ class MongoStorage extends MongoQueries {
         .toArray()
     }
 
-    if (expression.$mapReduce) {
+    if (expression.$map) {
       let mapReduceOptions = {
         query: expression.$query || {},
         out: {inline: 1},
