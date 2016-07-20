@@ -22,7 +22,8 @@ const metaOperators = {
   $aggregate: true,
   $distinct: true,
   $field: true,
-  $mapReduce: true
+  $mapReduce: true,
+  $options: true
 }
 
 const notDocsOperators = {

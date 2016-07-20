@@ -46,7 +46,7 @@ class MongoStorage extends MongoQueries {
 
     if (expression.$aggregate) {
       return collection
-        .aggregate(expression.$aggregate)
+        .aggregate(expression.$aggregate, expression.$options)
         .toArray()
     }
 

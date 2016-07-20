@@ -227,7 +227,10 @@ let shouldBehaveLikeMongoQueriesStorage = function () {
           $group: {
             _id: `$${field}`
           }
-        }]
+        }],
+        $options: {
+          allowDiskUse: true
+        }
       })
 
       assert(data)
